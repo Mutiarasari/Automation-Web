@@ -3,6 +3,8 @@ package demo.pages.base;
 import demo.webdriver.WebdriverInstance;
 import org.openqa.selenium.*;
 
+import static java.lang.Thread.sleep;
+
 public class BasePageObject {
 
     public WebDriver getDriver() {
@@ -22,9 +24,22 @@ public class BasePageObject {
     }
 
     public void scrollDown() throws InterruptedException {
-        Thread.sleep(1000);
+        sleep(1000);
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0, 350)");
+    }
+
+    public void wait(int wait) {
+        try {
+            sleep(wait);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getTitle() {
+        wait(3000);
+        return getDriver().getTitle();
     }
 
 

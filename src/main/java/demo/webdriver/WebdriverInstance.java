@@ -19,7 +19,7 @@ public class WebdriverInstance {
         webdriver = new ChromeDriver(options);
         webdriver.manage().window().maximize();
         webdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        webdriver.get("https://www.elevenia.co.id/");
+        webdriver.get("https://rumahsiapkerja.com/");
         webdriver.manage().deleteAllCookies();
     }
 
